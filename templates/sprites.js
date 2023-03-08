@@ -11,29 +11,35 @@ class Sprite{
         ctx.fillRect(this.position.x,this.position.y,this.width,this.height);
     }
     update(){
-        if(this.position.y+this.height >= canvasHeight){
-            this.velocity.y=canvas.height -(this.position.y+this.height);
+        if(this.position.y+this.height > canvasHeight){
+            this.position.y=canvas.height-this.height
+            this.velocity.y=0
         }else{
             this.velocity.y += gravity
         }
         this.position.x += this.velocity.x
-        this.position.y += this.velocity.y+((gravity/1000)*(this.height*this.width))
+        this.position.y += this.velocity.y
         this.draw()
     }
 }
 class user extends Sprite{
     constructor({
         position,
-        velocity
+        velocity,
+        dimensions
     }){
         super({
             position,
-            velocity
+            velocity,
+            dimensions
         })
         this.velocity = velocity
+        this.width=dimensions.width
+        this.height=dimensions.height
+        this.lastkeypressed
     }
 }
-const player= new Sprite({
+const player= new user({
     position:{
         x:50,
         y:0
