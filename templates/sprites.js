@@ -14,8 +14,10 @@ class Sprite{
         if(this.position.y+this.height > canvasHeight){
             this.position.y=canvas.height-this.height
             this.velocity.y=0
+            this.isground=true
         }else{
             this.velocity.y += gravity
+            this.isground=false
         }
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -37,6 +39,7 @@ class user extends Sprite{
         this.width=dimensions.width
         this.height=dimensions.height
         this.lastkeypressed
+        this.isground=true
     }
 }
 const player= new user({

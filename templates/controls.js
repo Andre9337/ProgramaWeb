@@ -59,7 +59,7 @@ function handleControls(){
         if(keys.d.pressed&&["d","ArrowRight"].includes(player.lastkeypressed)){
             player.velocity.x = 1.5
         }
-        if(keys.w.pressed){
+        if(keys.w.pressed&&player.isground){
             player.velocity.y = -7
         }
     }
